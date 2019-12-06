@@ -5,6 +5,7 @@ import ru.lanit.constraint.PersonIdConstraint;
 import ru.lanit.deserializer.RuJsonDateDeserializer;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import java.time.LocalDate;
 
 public class PersonDto {
@@ -18,6 +19,7 @@ public class PersonDto {
 
     @JsonDeserialize(using = RuJsonDateDeserializer.class)
     @NotNull
+    @Past
     private LocalDate birthdate;
 
     public PersonDto() {}

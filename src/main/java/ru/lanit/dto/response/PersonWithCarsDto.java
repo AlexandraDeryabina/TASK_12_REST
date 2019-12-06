@@ -18,16 +18,16 @@ public class PersonWithCarsDto {
     @JsonSerialize(using = RuJsonDateSerializer.class)
     private LocalDate birthdate;
 
-    private List<CarDto> carList;
+    private List<CarDto> cars;
 
     public PersonWithCarsDto() {
     }
 
-    public PersonWithCarsDto(Long id, String name, LocalDate birthdate, List<CarDto> carList) {
+    public PersonWithCarsDto(Long id, String name, LocalDate birthdate, List<CarDto> cars) {
         this.id = id;
         this.name = name;
         this.birthdate = birthdate;
-        this.carList = carList;
+        this.cars = cars;
     }
 
     public Long getId() {
@@ -54,11 +54,11 @@ public class PersonWithCarsDto {
         this.birthdate = birthdate;
     }
 
-    public List<CarDto> getCarList() {
-        return carList;
+    public List<CarDto> getCars() {
+        return cars;
     }
 
-    public void setCarList(List<CarDto> carList) {
-        this.carList = carList;
+    public void setCars(List<CarDto> cars) {
+        this.cars = cars;
     }
 }

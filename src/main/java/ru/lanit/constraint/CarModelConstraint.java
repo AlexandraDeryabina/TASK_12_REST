@@ -11,7 +11,7 @@ import java.lang.annotation.*;
 @Target( { ElementType.METHOD, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CarModelConstraint {
-    String message() default "Incorrect model. Only {value} words is needed with split '{delimiter}'";
+    String message() default "Incorrect model. {value} or more words are needed with split '{delimiter}'";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
     int value() default 2;

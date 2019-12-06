@@ -19,15 +19,18 @@ public class CarModelValidator implements
 
     @Override
     public boolean isValid(String model, ConstraintValidatorContext constraintValidatorContext) {
+        // Если не сделать эту заглушку, будет падать ValidationException,
+        // т.к. @NotNull не блокирует запуск кастомных валидаций
+        if (model == null) {
+            return true;
+        }
         String[] modelPieces = model.split(delimiter);
-        if (modelPieces.length != quantity) {
+        if (modelPieces.length < quantity) {
             return false;
         }
 
-        for (String piece: modelPieces) {
-            if (piece.length() == 0) {
-                return false;
-            }
+        if (modelPieces[0].length() == 0) {
+            return false;
         }
 
         return true;
